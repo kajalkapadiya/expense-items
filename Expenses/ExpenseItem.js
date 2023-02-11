@@ -1,14 +1,26 @@
+import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpeneseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-  const title = props.item;
-  const desc = props.LocationOfExpenditure;
+  //  const title = props.item;
+  //  const desc = props.LocationOfExpenditure;
+
+   const [title, setTitle] = useState(props.title);
+   const [desc, setDesk] = useState(props.desc);
+   const [amount, setAmount] = useState(props.amount);
 
   const clickEvent = () => {
-    console.log('clicked!!');
-  }
+     setTitle("updated!!");
+     setDesk("spent");
+    console.log(title);
+  };
+
+const changeExpense = () => {
+  setAmount("Rs. 100");
+  console.log("change expense is done!");
+}
 
   const deleteEvent = () => {
     // const element = document.getElementsByTagName("ExpeneseDate");
@@ -16,8 +28,8 @@ const ExpenseItem = (props) => {
     // const element2 = document.getElementsByClassName("expense-item__price");
     // element.remove();
     // element1.remove();
-    // element2.remove();    
-  }
+    // element2.remove();
+  };
 
   return (
     <Card className="expense-item">
@@ -26,10 +38,11 @@ const ExpenseItem = (props) => {
         <h2>
           {title} - {desc}
         </h2>
-        <div className="expense-item__price">{props.amount}</div>
+        <div className="expense-item__price">{amount}</div>
       </div>
       <button onClick={clickEvent}>change title</button>
       <button onClick={deleteEvent}>delete expense</button>
+      <button onClick={changeExpense}>change expense</button>
     </Card>
   );
 };

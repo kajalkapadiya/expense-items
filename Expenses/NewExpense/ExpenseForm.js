@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [enterdTitle, setEnterdTitle] = useState(" ");
-  const [enterdAmount, setEnterdAmount] = useState(" ");
-  const [enterdDate, setEnterdDate] = useState(" ");
-  const [enterdExpend, setEnterdExpend] = useState(" ");
+  const [enterdTitle, setEnterdTitle] = useState("");
+  const [enterdAmount, setEnterdAmount] = useState("");
+  const [enterdDate, setEnterdDate] = useState("");
+  const [enterdExpend, setEnterdExpend] = useState("");
 
   const titleChangeHandler = (event) => {
     setEnterdTitle(event.target.value);
@@ -27,10 +27,10 @@ const ExpenseForm = (props) => {
     event.preventDefault();
 
     const expenseData = {
-      title: enterdTitle,
+      item: enterdTitle,
       amount: enterdAmount,
       date: new Date(enterdDate),
-      desc: enterdExpend,
+      LocationOfExpenditure: enterdExpend,
     };
 
     props.onSaveExpenseData(expenseData);
@@ -47,8 +47,8 @@ const ExpenseForm = (props) => {
           <label>Item</label>
           <input
             type="text"
-            onChange={titleChangeHandler}
             value={enterdTitle}
+            onChange={titleChangeHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -57,8 +57,8 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={amountChangeHandler}
             value={enterdAmount}
+            onChange={amountChangeHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -67,16 +67,16 @@ const ExpenseForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2023-12-31"
-            onChange={dateChangeHandler}
             value={enterdDate}
+            onChange={dateChangeHandler}
           />
         </div>
         <div className="new-expense__control">
           <label>Location Of Expenditure</label>
           <input
             type="text"
-            onChange={expendChangeHandler}
             value={enterdExpend}
+            onChange={expendChangeHandler}
           />
         </div>
       </div>

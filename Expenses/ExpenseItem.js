@@ -4,11 +4,9 @@ import ExpeneseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-  //  const title = props.item;
-  //  const desc = props.LocationOfExpenditure;
-
-   const [title, setTitle] = useState(props.title);
-   const [desc, setDesk] = useState(props.desc);
+  
+   const [title, setTitle] = useState(props.item);
+   const [desc, setDesk] = useState(props.LocationOfExpenditure);
    const [amount, setAmount] = useState(props.amount);
 
   const clickEvent = () => {
